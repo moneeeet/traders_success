@@ -1,24 +1,28 @@
-# README
+# <Trader's Success>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+<FXを勉強している初級者から上級者までを対象にしたサイト。ユーザーが勉強した内容を投稿することで知識をアウトプットしトレードスキルを向上させるために投稿できるコミュニティーサイト>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<TwitterやInstagramで勉強内容を発信しているユーザーは多いが、詐欺や集客目的のユーザーも多く純粋に勉強しているユーザを見つけることができない。そのため冷やかしや詐欺などに合わないようなサイトを作りたいと思ったため。>
 
-* Ruby version
+### ターゲットユーザ
+<FXを勉強したい人>
 
-* System dependencies
+### 主な利用シーン
+<勉強した内容を投稿したり、気になった手法を検索して勉強できる>
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
