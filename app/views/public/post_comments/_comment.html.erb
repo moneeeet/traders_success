@@ -1,0 +1,21 @@
+<table>
+  <tbody>
+    <% post_comments.each do |post_comment| %>
+    <tr>
+      <td>
+        <%= image_tag post_comment.user.get_profile_image(100,100) %>
+          <%= link_to public_user_path(post_comment.user.id) do %>
+          <%= post_comment.user.name %>
+        <% end %>
+      </td>
+      <td><%= post_comment.comment %></td>
+      <td>
+        <% if post_comment.user == current_user %>
+        <%= link_to 'Destroy', public_post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete, remote: true, class: "btn btn-sm btn-danger destroy_book_#{post_comment.id}"%>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

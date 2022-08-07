@@ -1,0 +1,26 @@
+<h3>投稿詳細</h3>
+<div class= 'user'>
+     <%= image_tag @user.get_profile_image(50,50) %> </br>
+     <%= @user.name %>
+</div>
+
+<div class= 'body'>
+    <h4>title<%= @post.title %></h4>
+    <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
+    <%= @post.body%>
+</div>
+
+<div id="favorite_<%= @post.id %>">
+    <%= render 'public/favorites/favorites', post: @post %>
+</div>
+
+<div id = "post_comments_<% @post_id %>">
+  <%= render 'public/post_comments/comment', post_comments: @post.post_comments %>
+</div>
+ <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
+
+
+ <% if @post.user == current_user %>
+    <%= link_to 'Edit', edit_public_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+    <%= link_to 'Destroy', public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+ <% end %>

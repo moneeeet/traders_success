@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+.color {
+    background-color: #6c2735;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.main-visual {
+  width: 100%;
+  height: 300px;
+  background-image: url(wance-paleri--5VN1iu3Cdk-unsplash);
+  background-size: cover;
+  background-position: center;
+}

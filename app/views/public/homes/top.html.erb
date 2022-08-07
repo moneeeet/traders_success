@@ -1,0 +1,31 @@
+<div class="main-visual">
+  <div class="main-visual-content">
+    <p>trading</p>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <h1><strong>New Posts</strong></h1>
+  </div>
+
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+        <div class="card">
+          <%= link_to public_post_path(post), class:"card-body" do %>
+            <%= image_tag post.get_image(250,250), class:"card-img-top" %><br>
+          <% end %>
+          <div class="card-body">
+            <strong><%= post.title %></strong><br>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-4 row mt-3 mb-3">
+      <p><%= link_to "全ての投稿を見る>", public_posts_path %></p>
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+<table class='table'>
+  <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+  <tr>
+  	<th>user name</th>
+    <th><%= user.name %></th>
+  </tr>
+</table>
+<% if user.name != "guestuser" %>
+<div class='row'>
+  <%= link_to '',edit_public_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+</div>
+<% end %>

@@ -1,0 +1,42 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class='container'>
+  <div class=“row”>
+    <div class='mx-auto col-lg-6'>
+    <h3 class="mt-4"><strong>新規会員登録</strong></h3><br>
+
+      <div class="mb-3">
+        <%= f.label :name, "user name" %>
+        <%= f.text_field :name, class:"form-control", autofocus: true, autocomplete: "name" %>
+      </div>
+
+
+      <div class="mb-3">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password, "パスワード（6文字以上）" %>
+        <% if @minimum_password_length %>
+        <!--<em>%= @minimum_password_length %></em>-->
+        <% end %>
+        <%= f.password_field :password, class:"form-control", autocomplete: "new-password" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
+        <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password" %>
+      </div><br>
+
+      <div class="mb-3">
+        <%= f.submit "新規登録", class:"btn btn-outline-success btn-block" %>
+      </div><br>
+    <% end %>
+
+     <div class="mb-3">
+       <%= render "public/shared/links" %>
+     </div>
+    </div>
+  </div>
+</div>
