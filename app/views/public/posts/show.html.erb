@@ -6,13 +6,20 @@
 
 <div class= 'body'>
     <h4>title<%= @post.title %></h4>
-    <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
+    <div class= "image_investor">
+        <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
+    </div>
+
     <%= @post.body%>
 </div>
 
 <div id="favorite_<%= @post.id %>">
     <%= render 'public/favorites/favorites', post: @post %>
 </div>
+<% @post.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+<% end %>
+
 
 <div id = "post_comments_<% @post_id %>">
   <%= render 'public/post_comments/comment', post_comments: @post.post_comments %>

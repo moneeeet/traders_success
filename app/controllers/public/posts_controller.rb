@@ -30,6 +30,7 @@ class Public::PostsController < ApplicationController
   def create
     @posts = Post.all
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to public_post_path(@post)
     else
@@ -49,11 +50,8 @@ class Public::PostsController < ApplicationController
 
 
   private
-    def post_params
-      params.require(:post).permit(:title, :body, :image, :user_id)
-    end
-
-    def article_params
-      params.require(:post).permit(:body, tag_ids: [])
-    end
+  
+  def post_params
+    params.require(:post).permit(:title, :body, :image, tag_ids: [])
+  end
 end

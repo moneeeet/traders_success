@@ -1,8 +1,6 @@
 <h3>新規投稿</h3>
 
- <%= form_with model:@post, url: public_posts_path, method: :post, local:true do |f| %>
-<form>
-<%= f.hidden_field :user_id, value: current_user.id %>
+<%= form_with model: @post, url: public_posts_path, method: :post, local:true do |f| %>
   <div class="mb-3">
     <%= f.label :image, "画像" %>
     <%= f.file_field :image, accept: "image/*", class:"form-control-file" %>
@@ -12,7 +10,7 @@
     <%= f.text_field :title, class: 'form-control book_title' %>
   </div>
   <div class="mb-3">
-   <%= f.label :opinion %>
+   <%= f.label :body %>
    <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
   <div class="mb-3 form-check">

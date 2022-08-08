@@ -27,7 +27,7 @@ root to: 'public/homes#top'
   end
 
    namespace :admin do
-    get "/" => "homes#top"
+    get "/"=>"homes#top"
     # resources :posts, only: [:index, :show]
     resources :post_comments, only:[:destroy]
   end

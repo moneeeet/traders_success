@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -22,9 +23,6 @@
         </div>
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-
-
-
               <li>
                 <%= link_to "マイページ", public_user_path(current_user), class: "btn btn-outline-light mr-4" %>
               </li>
@@ -41,7 +39,7 @@
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light mr-2" %>
               </li>
 
-          <%# elsif admin_signed_in? %>
+          <% elsif admin_signed_in? %>
 
            <li>
              <%#= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light mr-3" %>
@@ -60,22 +58,22 @@
            </li>
 
            <li>
-             <%#= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light mr-2" %>
+             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light mr-2" %>
            </li>
 
           <% else %>
 
            <li>
-            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-outline-light mr-4", method: :post %>
            </li>
            <li>
              <%= link_to "投稿一覧", public_posts_path, class: "btn btn-outline-light mr-4" %>
            </li>
            <li>
-             <%#= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light mr-4" %>
+             <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light mr-4" %>
            </li>
            <li>
-             <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-2" %>
+             <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-5" %>
            </li>
           <% end %>
           </ul>
@@ -87,7 +85,7 @@
     <%= yield %>
     </main>
 
-    <footer class="color text-dark bg-dark color pt-3 pb-1">
+    <footer class="color text-light color pt-3 pb-1">
         <p class="text-center"> © Traders Success 2022</p>
     </footer>
   </body>
