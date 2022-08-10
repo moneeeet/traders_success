@@ -1,0 +1,6 @@
+いいね一覧
+<% @favorite_posts.each do |post|%> </br>
+<%= link_to public_post_path(post) do %>
+<%=post.title %>
+<% end %>
+<% end %>

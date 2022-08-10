@@ -31,6 +31,24 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+
+  def unsubscribe
+  end
+
+  def withdrawal
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
+
+
   def user_params
     params.require(:user).permit(:name, :email, :profile_image)
   end

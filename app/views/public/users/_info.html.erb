@@ -4,6 +4,14 @@
   	<th>user name</th>
     <th><%= user.name %></th>
   </tr>
+  <tr>
+    <p><%=link_to"お気に入り記事",favorites_public_user_path(@user) %></p>
+    <th>
+      <% if @user != current_user %>
+      <%= link_to "ユーザーを通報", new_public_user_report_path(@user), class: "btn btn-danger" %>
+      <% end %>
+    </th>
+  </tr>
 </table>
 <% if user.name != "guestuser" %>
 <div class='row'>
