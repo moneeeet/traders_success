@@ -43,6 +43,7 @@ root to: 'public/homes#top'
 
    namespace :admin do
     get "/"=>"homes#top"
+    patch "users/:id/is_deleted" =>"users#is_deleted", as: "is_deleted"
     # resources :posts, only: [:index, :show]
     resources :post_comments, only:[:destroy]
     resources :reports, only: [:index, :show, :update]
