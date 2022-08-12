@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
       render "edit"
     end
   end
-  
+
   def is_deleted
      @user = User.find(params[:id])
 
@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
     else
       render "edit"
     end
-    
+
   end
 
 
