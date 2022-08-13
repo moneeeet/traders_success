@@ -48,7 +48,7 @@ class Public::UsersController < ApplicationController
   end
 
   def user_state
-    @user = User.find_by(email: params[:user][:email])　　#emailからuserを探す
+    @user = User.find_by(email: params[:user][:email]) #emailからuserを探す
     if @user　　　#もしアカウントが見つかれば
       if @user.valid_password?(params[:user][:password]) && @user.user_status
       #@userのパスワードが有効かつ退会済み(user_status == true)ならば
