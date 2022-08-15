@@ -23,6 +23,13 @@
         </div>
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
+
+              <div class="search-form">
+                <%= form_with url: public_post_search_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, value: @keyword %>
+                  <%= f.submit "検索" %>
+                <% end %>
+              </div>
               <li>
                 <%= link_to "マイページ", public_user_path(current_user), class: "btn btn-outline-light mr-4" %>
               </li>

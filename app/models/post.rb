@@ -20,4 +20,8 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [250, 250]).processed
   end
+
+  def self.search(keyword,page)
+    where("title like? OR body like?", "%#{keyword}%", "%#{keyword}%").page(page)
+  end
 end

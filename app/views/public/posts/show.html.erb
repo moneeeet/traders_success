@@ -22,7 +22,7 @@
 
 
 <div id = "post_comments_<% @post_id %>">
-  <%= render 'public/post_comments/comment', post_comments: @post.post_comments %>
+  <%= render 'public/post_comments/comment', post_comments: @post.post_comments, user: @user, post: @post %>
 </div>
  <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
 

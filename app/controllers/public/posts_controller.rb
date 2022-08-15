@@ -48,6 +48,11 @@ class Public::PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:keyword], params[:page])
+    @keyword = params[:keyword]
+    render "index"
+  end
 
 
   private

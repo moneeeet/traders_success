@@ -1,0 +1,9 @@
+ <h3>通報</h3>
+
+<%= form_with model: @comment_report, url: public_post_comment_reports_path do |f| %>
+  <div class="form-group">
+    <%= f.text_area :reason, rows:'3', class:"form-control" %>
+    <%= f.text_field :url, class:"form-control" %>
+    <%= f.submit "通報する", class: "btn btn-danger" %>
+  </div>
+<% end %>

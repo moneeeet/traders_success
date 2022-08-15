@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :reports, class_name: "Report", foreign_key: "reporter_id", dependent: :destroy
   has_many :reverse_of_reports, class_name: "Report", foreign_key: "reported_id", dependent: :destroy
   has_one_attached :profile_image
+  has_many :comment_reports, class_name: "CommentReport", foreign_key: "comment_reporter_id", dependent: :destroy
+  has_many :reverse_of_comment_reports, class_name: "CommentReport", foreign_key: "comment_reprted_id", dependent: :destroy
 
   def get_profile_image(width, height)
     unless profile_image.attached?

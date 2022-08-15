@@ -14,6 +14,11 @@
         <%= link_to 'Destroy', public_post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete, remote: true, class: "btn btn-sm btn-danger destroy_book_#{post_comment.id}"%>
         <% end %>
       </td>
+      <td>
+        <% if user != current_user %>
+        <%= link_to "コメントを通報", new_public_post_comment_report_path(post), class: "btn btn-danger" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
