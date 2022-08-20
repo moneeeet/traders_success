@@ -1,9 +1,15 @@
- <h3>通報</h3>
+<div class='container'>
+  <div class=“row”>
+    <div class='mx-auto col-lg-6'>
+    <h3 class="mt-4"><strong>コメントを通報する</strong></h3><br>
 
-<%= form_with model: @comment_report, url: public_post_comment_reports_path do |f| %>
+<%= form_with model: @comment_report, url: public_post_post_comment_comment_reports_path, method: :post do |f| %>
   <div class="form-group">
+    通報理由
     <%= f.text_area :reason, rows:'3', class:"form-control" %>
+    通報したい人のURL等
     <%= f.text_field :url, class:"form-control" %>
+
     <%= f.submit "通報する", class: "btn btn-danger" %>
   </div>
 <% end %>

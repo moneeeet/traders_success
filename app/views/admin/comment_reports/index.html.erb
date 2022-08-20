@@ -1,8 +1,7 @@
 <div class='container'>
   <div class=“row”>
     <div class='mx-auto col-lg-6'>
-    <h3 class="mt-4"><strong>ユーザー通報一覧</strong></h3><br>
-
+    <h3 class="mt-4"><strong>コメント通報一覧</strong></h3><br>
       <table class="table">
         <thead>
           <tr>
@@ -14,26 +13,28 @@
           </tr>
         </thead>
         <tbody>
-          <% @reports.each do |report| %>
+          <%= flash[:notice] %>
+          <% @comment_reports.each do |comment_report| %>
             <tr>
               <td>
-                <%= link_to report.id, admin_report_path(report) %>
+                <%= link_to comment_report.id, admin_comment_report_path(comment_report) %>
               </td>
               <td>
-                <%= report.reported.name %>
+                <%= comment_report.comment_reported.name %>
               </td>
               <td>
-                <%= report.reporter.name %>
+                <%= comment_report.comment_reporter.name %>
               </td>
               <td>
-                <%= report.status_i18n %>
+                <%= comment_report.comment_report_status_i18n %>
               </td>
               <td>
-                <%= link_to "削除", admin_report_path(report), method: :delete %>
+                <%= link_to "削除", admin_comment_report_path(comment_report), method: :delete %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+  </div>
 </div>

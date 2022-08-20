@@ -11,8 +11,14 @@ class Admin::ReportsController < ApplicationController
     @report = Report.find(params[:id])
     if @report.update(report_params)
       flash[:notice] = "対応ステータスを更新しました。"
-      redirect_to request.referer
+      redirect_to admin_reports_index_path
     end
+  end
+
+  def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+    redirect_to admin_reports_index_path
   end
 
   private

@@ -6,8 +6,8 @@
       <%= form_with model: @user, url: public_user_path, method: :patch do |f| %>
 
       <div class="mb-3">
-        <%= f.label :image, "image" %>
-        <%= f.file_field :image, class: "form-control-file user_image", accept: 'image/*' %>
+        <%= f.label :profile_image, "image" %>
+        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
       </div>
        <div class="col">
         <%= f.label :name, "user name" %>

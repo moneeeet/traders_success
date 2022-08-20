@@ -26,10 +26,7 @@
   background-color: #444444;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-}
+
 
 .main-visual {
  width: 100%;
@@ -37,4 +34,37 @@
  background-image: url(wance-paleri--5VN1iu3Cdk-unsplash);
  background-size: cover;
  background-position: top;
+}
+
+.user {
+ img {
+   border-radius: 50%;
+   width: 4vw;
+ }
+}
+
+.container-index_show {
+ // background-color: #e0ffff;
+}
+
+.comment-image {
+ img {
+   border-radius: 50%;
+   width: 4vw;
+ }
+}
+
+.user-profile-image {
+ img {
+  border-radius: 50%;
+   width: 4vw;
+ }
+}
+
+
+
+footer{
+    position: fixed;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    width: 100%;
 }

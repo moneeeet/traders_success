@@ -11,6 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
    <body>
     <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark color" >
@@ -30,6 +31,7 @@
                   <%= f.submit "検索" %>
                 <% end %>
               </div>
+              <li>.   .</li>
               <li>
                 <%= link_to "マイページ", public_user_path(current_user), class: "btn btn-outline-light mr-4" %>
               </li>
@@ -57,11 +59,11 @@
            </li>
 
            <li>
-             <%#= link_to "注文履歴一覧", admin_path, class: "btn btn-outline-light mr-3" %>
+             <%= link_to "コメント通報一覧", admin_comment_reports_path, class: "btn btn-outline-light mr-3" %>
            </li>
 
            <li>
-             <%= link_to "通報一覧", admin_reports_path, class: "btn btn-outline-light mr-3" %>
+             <%= link_to "ユーザー通報一覧", admin_reports_path, class: "btn btn-outline-light mr-3" %>
            </li>
 
            <li>
@@ -88,8 +90,8 @@
       </div>
     </nav>
     </header>
-    <main class="mb-auto">
-    <%= yield %>
+    <main class="mb-auto pb-3">
+      <%= yield %>
     </main>
 
     <footer class="color text-light color pt-3 pb-1">

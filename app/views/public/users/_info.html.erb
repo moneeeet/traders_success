@@ -1,20 +1,33 @@
 <table class='table'>
-  <tr><%= image_tag user.get_profile_image(100,100) %></tr>
   <tr>
-  	<th>user name</th>
-    <th><%= user.name %></th>
+    <th>
+      <div class="user-profile-image">
+        <%= image_tag user.get_profile_image(100,100) %>
+      </div>
+    </th>
+    <td></td>
   </tr>
   <tr>
-    <p><%=link_to"お気に入り記事",favorites_public_user_path(@user) %></p>
+  	<th>User Name</th>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
     <th>
-      <% if @user != current_user %>
-      <%= link_to "ユーザーを通報", new_public_user_report_path(@user), class: "btn btn-danger" %>
+      <div>
+        <%=link_to "いいね", favorites_public_user_path(user), class: "btn btn-outline-info" %>
+      </div>
+      <% if current_user.name != "guestuser" %>
+        <%= link_to "プロフィール編集", edit_public_user_path(user), class: "btn btn-outline-warning" %>
       <% end %>
     </th>
+    <td>
+      <% if current_user.name != "guestuser" %>
+      <% if @user != current_user %>
+        <%= link_to "ユーザーを通報", new_public_user_report_path(user), class: "btn btn-danger" %>
+      <% end %>
+      <% end %>
+
+    </td>
   </tr>
 </table>
-<% if user.name != "guestuser" %>
-<div class='row'>
-  <%= link_to '編集',edit_public_user_path(user)  %>
-</div>
-<% end %>
+

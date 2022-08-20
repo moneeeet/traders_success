@@ -1,11 +1,19 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_normal_user, only: [:new, :create, :destroy, :update, :edit ]
+
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは投稿できません。'
+    end
+  end
+
   def new
      @post = Post.new
   end
 
   def index
-     @posts =Post.page(params[:page]).per(6)
+     @posts =Post.order(created_at: :desc).page(params[:page]).per(6)
      @post = Post.new
   end
 

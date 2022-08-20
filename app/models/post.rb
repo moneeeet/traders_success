@@ -6,8 +6,10 @@ class Post < ApplicationRecord
   has_many :post_tag_relations, dependent: :destroy
   #postsテーブルから中間テーブルを介してTagsテーブルへの関連付け
   has_many :tags, through: :post_tag_relations
-
   has_one_attached :image
+
+  validates :title, presence:true
+  validates :body, presence:true,length:{maximum:200}
 
   def favorited?(user)
    favorites.where(user_id: user.id).exists?

@@ -30,9 +30,10 @@ root to: 'public/homes#top'
    get 'post/search' => 'posts#search'
 
    resources :posts, only: [:new, :index, :show, :edit, :create, :destroy, :update ] do
-    resources :post_comments, only: [:create, :destroy ]
-    resources :comment_reports, only: [:new, :create]
-    resource :favorites, only:[:create, :destroy]
+     resources :post_comments, only: [:create, :destroy ] do
+      resources :comment_reports, only: [:new, :create]
+     end
+     resource :favorites, only:[:create, :destroy]
    end
 
 
@@ -48,11 +49,10 @@ root to: 'public/homes#top'
    namespace :admin do
     get "/"=>"homes#top"
     patch "users/:id/is_deleted" =>"users#is_deleted", as: "is_deleted"
-    # resources :posts, only: [:index, :show]
     resources :post_comments, only:[:destroy]
-    resources :reports, only: [:index, :show, :update]
+    resources :reports, only: [:index, :show, :update, :destroy]
     resources :users, only: [:index, :show, :update, :edit]
-    resources :comment_reports, only: [:index, :show, :update]
+    resources :comment_reports, only: [:index, :show, :update, :edit, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

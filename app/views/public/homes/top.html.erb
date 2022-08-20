@@ -1,7 +1,7 @@
 <div class="main-visual">
 
 </div>
-
+<%= flash[:alert] %>
 <div class="container">
   <div class="row mt-3 mb-3">
     <h1><strong>New Posts</strong></h1>
@@ -23,7 +23,7 @@
   </div>
 
   <div class="row">
-    <div class="col-4 row mt-3 mb-3">
+    <div class="col-4 row mt-3 mb-3 pb-5">
       <p><%= link_to "全ての投稿を見る>", public_posts_path %></p>
     </div>
   </div>

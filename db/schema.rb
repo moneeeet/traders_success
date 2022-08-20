@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(version: 2022_08_14_083506) do
     t.integer "comment_reported_id", null: false
     t.text "reason", null: false
     t.text "url"
-    t.integer "comment_report_stasus"
+    t.integer "comment_report_status", default: 0, null: false
+    t.integer "post_comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
