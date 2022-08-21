@@ -61,10 +61,15 @@
  }
 }
 
-
-
 footer{
     position: fixed;/*←絶対位置*/
     bottom: 0; /*下に固定*/
     width: 100%;
+}
+
+.iine-profile-image {
+ img {
+  border-radius: 50%;
+  width: 4vw;
+ }
 }
