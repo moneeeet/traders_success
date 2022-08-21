@@ -10,3 +10,10 @@ ja:
         waiting: "対応待ち"
         keep: "保留"
         finish: "対応済み"
+  views:
+    pagination:
+      first: "«"
+      last: "»"
+      previous: "‹ "
+      next: " ›"
+      truncate: "..."

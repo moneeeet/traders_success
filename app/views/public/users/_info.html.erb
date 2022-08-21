@@ -1,29 +1,30 @@
 <table class='table'>
   <tr>
     <th>
-      <div class="user-profile-image">
+      <div class="user-profile-image text-center">
         <%= image_tag user.get_profile_image(100,100) %>
       </div>
-      <div class= "text-right">
-        <%=link_to favorites_public_user_path(user), class: "btn btn-outline-info" do %>
+    </th>
+    <th>
+      <div class="mt-2">
+        <%=link_to favorites_public_user_path(user), class: "btn btn-sm btn-outline-info" do %>
           <i class="fas fa-rocket"></i>
         <% end %>
       </div>
-      </br>
-      <div class= "text-right">
+
+      <div class="mt-2">
         <% if current_user.name != "guestuser" %>
-          <%= link_to edit_public_user_path(user), class: "btn btn-outline-warning" do %>
+          <%= link_to edit_public_user_path(user), class: "btn btn-sm btn-outline-warning" do %>
           <i class="fas fa-user-edit"></i>
           <% end %>
         <% end %>
       </div>
-
     </th>
-    <td></td>
   </tr>
   <tr>
-  	<th>User Name</th>
+  	<th class="text-center">User Name</th>
     <td><%= user.name %></td>
+    <td></td>
   </tr>
   <tr>
     <th>
@@ -37,6 +38,7 @@
       <% end %>
 
     </td>
+    <td></td>
   </tr>
 </table>
 
