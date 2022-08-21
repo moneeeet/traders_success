@@ -4,6 +4,15 @@
       <div class="user-profile-image">
         <%= image_tag user.get_profile_image(100,100) %>
       </div>
+      <div class= "text-right">
+        <%=link_to "いいね", favorites_public_user_path(user), class: "btn btn-outline-info" %>
+      </div>
+      </br>
+      <div class= "text-right">
+        <% if current_user.name != "guestuser" %>
+          <%= link_to "プロフィール編集", edit_public_user_path(user), class: "btn btn-outline-warning" %>
+        <% end %>
+      </div>
     </th>
     <td></td>
   </tr>
@@ -13,12 +22,7 @@
   </tr>
   <tr>
     <th>
-      <div>
-        <%=link_to "いいね", favorites_public_user_path(user), class: "btn btn-outline-info" %>
-      </div>
-      <% if current_user.name != "guestuser" %>
-        <%= link_to "プロフィール編集", edit_public_user_path(user), class: "btn btn-outline-warning" %>
-      <% end %>
+
     </th>
     <td>
       <% if current_user.name != "guestuser" %>
