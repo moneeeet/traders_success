@@ -8,7 +8,16 @@
          <%= @user.name %>
          <% end %>
         </div>
-        </br>
+        <div class= "text-right">
+            <% if @post.user == current_user %>
+                <%= link_to edit_public_post_path(@post), class: "btn btn-outline-primary edit_post_#{@post.id}" do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <% end %>
+                <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" do %>
+                <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+            <% end %>
+        </div>
         <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
         </br>
         <div class= 'body'>
@@ -20,6 +29,13 @@
         </br>
             <%= @post.body%>
         </div>
+        </br>
+        <div>
+            <% @post.tags.each do |tag| %>
+                <span><%= tag.name %></span>
+            <% end %>
+        </div>
+
         </br>
         <div id="favorite_<%= @post.id %>">
             <%= render 'public/favorites/favorites', post: @post %>
@@ -34,9 +50,5 @@
         <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
         </div>
         </br>
-        <% if @post.user == current_user %>
-            <%= link_to 'Edit', edit_public_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-            <%= link_to 'Destroy', public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
-        <% end %>
     </div>
 </div>

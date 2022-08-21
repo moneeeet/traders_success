@@ -26,7 +26,19 @@
                   </div>
               <% end %>
           </div>
+        <div>
+          <form>
+            <%= text_field_tag :tag %>
+            <%= submit_tag 'タグを追加', id: "form" %>
+          </form>
+        </div>
 
-         <%= f.submit class: 'btn btn-success' %>
+        </br>
+        <div>
+          <%= f.submit class: 'btn btn-success' %>
+        </div>
+
+
+
 </div>
   <% end %>

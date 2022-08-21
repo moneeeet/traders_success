@@ -3,6 +3,11 @@
     <h1><strong>Posts</strong></h1>
   </div>
 
+    <%= form_with url: public_posts_path, method: :get do |f| %>
+        <%= f.collection_select :name, Tag.all, :name, :name, include_blank: "選択して下さい" %>
+    <%= submit_tag '検索' %>
+    <% end %>
+    </br>
      <div class="row">
       <% @posts.each do |post| %>
         <div class="col-4">
