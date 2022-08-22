@@ -11,12 +11,16 @@
       <td><%= post_comment.comment %></td>
       <td>
         <% if post_comment.user == current_user %>
-        <%= link_to 'Destroy', public_post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete, remote: true, class: "btn btn-sm btn-danger destroy_book_#{post_comment.id}"%>
+          <%= link_to public_post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete, remote: true, class: "btn btn-sm btn-danger destroy_book_#{post_comment.id}" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </td>
       <td>
         <% if user != current_user %>
-        <%= link_to "コメントを通報", new_public_post_post_comment_comment_report_path(post_id: post.id, post_comment_id: post_comment.id), class: "btn btn-danger" %>
+          <%= link_to new_public_post_post_comment_comment_report_path(post_id: post.id, post_comment_id: post_comment.id), class: "btn btn-danger" do %>
+            <i class="fas fa-poo-storm"></i>
+          <% end %>
         <% end %>
       </td>
     </tr>

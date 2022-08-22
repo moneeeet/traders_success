@@ -1,15 +1,9 @@
-<div class="container">
-  <div class="row mt-3 mb-3">
-    <h1><strong>いいね一覧</strong></h1>
-  </div>
-
-<div class="row">
-      <% @favorite_posts.each do |post|%> </br>
+<% posts.each do |post| %>
         <div class= "table mb-3 pb-3">
         <thead>
           <tr>
             <th>
-              <%= link_to public_user_path(@user) do %>
+              <%= link_to public_user_path(user) do %>
               <%= post.user.name%>
               <% end %>
             </th>
@@ -34,9 +28,4 @@
         <hr class="border border-4">
         </div>
       <% end %>
-      <div class="text-center"><%#= paginate @posts, theme: 'bootstrap-5' %></div>
-        </div><br>
-    </div>
-  </div>
-</div><br><br><br><br><br><br>
-
+      <div class="text-center"><%= paginate posts, theme: 'bootstrap-5' %></div>

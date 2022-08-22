@@ -10,7 +10,7 @@
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-4">
-        <div class="card">
+        <div class="card mb-4">
           <%= link_to public_post_path(post), class:"card-body" do %>
             <%= image_tag post.get_image(250,250), class:"card-img-top" %><br>
           <% end %>

@@ -11,7 +11,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
    <body>
     <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark color" >
@@ -24,14 +23,21 @@
         </div>
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-
-              <div class="search-form">
-                <%= form_with url: public_post_search_path, method: :get, local: true do |f| %>
-                  <%= f.text_field :keyword, value: @keyword %>
-                  <%= f.submit "検索" %>
-                <% end %>
+            <%= form_with url: public_post_search_path, method: :get, local: true do |f| %>
+              <div class="d-flex pl-2">
+                <div class="input-group">
+                    <%= f.text_field :keyword, placeholder: "キーワードで検索", class: "form-control" %>
+                    <%= f.hidden_field :model, value: @keyword %>
+                </div>
+                <span class="input-group-btn input-group-append search-btn-content ml-2">
+                  <%= button_tag(type: "submit", class: "search-btn") do %>
+                    <i class="fa fa-search"></i>
+                  <% end %>
+                </span>
               </div>
-              <li>.   .</li>
+            <% end %>
+              </div>
+              <li></li>
               <li>
                 <%= link_to "マイページ", public_user_path(current_user), class: "btn btn-outline-light mr-4" %>
               </li>
@@ -63,7 +69,7 @@
            </li>
 
            <li>
-             <%= link_to "ユーザー通報一覧", admin_reports_path, class: "btn btn-outline-light mr-3" %>
+             <%= link_to "通報一覧", admin_reports_path, class: "btn btn-outline-light mr-3" %>
            </li>
 
            <li>
@@ -74,6 +80,9 @@
 
            <li>
             <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-outline-light mr-4", method: :post %>
+           </li>
+           <li>
+             <%= link_to "投稿一覧", public_posts_path, class: "btn btn-outline-light mr-4" %>
            </li>
            <li>
              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light mr-4" %>
@@ -87,7 +96,7 @@
       </div>
     </nav>
     </header>
-    <main class="mb-auto pb-3">
+    <main class="mb-auto">
       <%= yield %>
     </main>
 
