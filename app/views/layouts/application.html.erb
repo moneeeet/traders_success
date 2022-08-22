@@ -14,30 +14,13 @@
    <body>
     <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark color" >
-      <div class="container">
+      <!--<div class="container">-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-        </div>
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <%= form_with url: public_post_search_path, method: :get, local: true do |f| %>
-              <div class="d-flex pl-2">
-                <div class="input-group">
-                    <%= f.text_field :keyword, placeholder: "キーワードで検索", class: "form-control" %>
-                    <%= f.hidden_field :model, value: @keyword %>
-                </div>
-                <span class="input-group-btn input-group-append search-btn-content ml-2">
-                  <%= button_tag(type: "submit", class: "search-btn") do %>
-                    <i class="fa fa-search"></i>
-                  <% end %>
-                </span>
-              </div>
-            <% end %>
-              </div>
-              <li></li>
               <li>
                 <%= link_to "マイページ", public_user_path(current_user), class: "btn btn-outline-light mr-4" %>
               </li>
@@ -54,15 +37,29 @@
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light mr-2" %>
               </li>
 
+              <%= form_with url: public_post_search_path, method: :get, local: true do |f| %>
+              <div class="d-flex pl-2">
+                <div class="input-group">
+                    <%= f.text_field :keyword, placeholder: "キーワードで検索", class: "form-control" %>
+                    <%= f.hidden_field :model, value: @keyword %>
+                </div>
+                <span class="input-group-btn input-group-append search-btn-content ml-2">
+                  <%= button_tag(type: "submit", class: "search-btn") do %>
+                    <i class="fa fa-search"></i>
+                  <% end %>
+                </span>
+              </div>
+            <% end %>
+
           <% elsif admin_signed_in? %>
 
-           <li>
+           <!--<li>-->
              <%#= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light mr-3" %>
-           </li>
+           <!--</li>-->
 
-           <li>
+           <!--<li>-->
              <%#= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-light mr-3" %>
-           </li>
+           <!--</li>-->
 
            <li>
              <%= link_to "コメント通報一覧", admin_comment_reports_path, class: "btn btn-outline-light mr-3" %>
@@ -93,7 +90,7 @@
           <% end %>
           </ul>
         </div>
-      </div>
+      <!--</div>-->
     </nav>
     </header>
     <main class="mb-auto">

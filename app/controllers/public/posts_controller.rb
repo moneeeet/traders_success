@@ -53,7 +53,6 @@ class Public::PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new(post_params)
     @post.user = current_user
-    # byebug
     if @post.save
       redirect_to public_post_path(@post)
     else
@@ -67,7 +66,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-    redirect_to public_user_path(@post)
+    redirect_to public_user_path(current_user)
     else
     render 'show'
     end
