@@ -1,0 +1,33 @@
+<h3 class="mt-4"><strong>ユーザー通報一覧</strong></h3><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>通報ID</th>
+        <th>会員名</th>
+        <th>通報者</th>
+        <th>ステータス</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reports.each do |report| %>
+        <tr>
+          <td>
+            <%= link_to report.id, admin_report_path(report) %>
+          </td>
+          <td>
+            <%= report.reported.name %>
+          </td>
+          <td>
+            <%= report.reporter.name %>
+          </td>
+          <td>
+            <%= report.status_i18n %>
+          </td>
+          <td>
+            <%= link_to "削除", admin_report_path(report), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

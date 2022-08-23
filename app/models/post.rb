@@ -8,8 +8,10 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tag_relations
   has_one_attached :image
 
-  validates :title, presence:true
+  validates :title, presence:true,length:{maximum:20}
   validates :body, presence:true,length:{maximum:200}
+
+
 
   def favorited?(user)
    favorites.where(user_id: user.id).exists?
