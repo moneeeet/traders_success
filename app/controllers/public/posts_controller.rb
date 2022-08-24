@@ -53,14 +53,20 @@ class Public::PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save
-      redirect_to public_post_path(@post)
-    else
-     if params[:tag]
-      Tag.create(name: params[:tag])
-     end
+ 
+    if params[:commit] == "Create Post"
+      if @post.save
+        redirect_to public_post_path(@post)
+      else
       render 'new'
+      end
+    else
+      Tag.create(name: params[:tag])
+       render "new"
+      
     end
+      
+
   end
 
   def destroy
