@@ -2,56 +2,55 @@
     <div class='mx-auto col-lg-6 pb-5'>
     </br>
     </br>
-        <div class= 'user-profile-image'>
-         <%= link_to public_user_path(@user) do %>
-         <%= image_tag @user.get_profile_image(50,50) %>
-         <%= @user.name %>
-         <% end %>
-
-        </div>
-        <div class= "text-right">
-            <% if @post.user == current_user %>
-                <%= link_to edit_public_post_path(@post), class: "btn btn-outline-primary edit_post_#{@post.id}" do %>
-                <i class="fas fa-edit"></i>
-                <% end %>
-                <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" do %>
-                <i class="fas fa-trash-alt"></i>
-                <% end %>
+    <div class= 'user-profile-image'>
+     <%= link_to public_user_path(@user) do %>
+     <%= image_tag @user.get_profile_image(50,50) %>
+     <%= @user.name %>
+     <% end %>
+    </div>
+    <div class= "text-right">
+        <% if @post.user == current_user %>
+            <%= link_to edit_public_post_path(@post), class: "btn btn-outline-primary edit_post_#{@post.id}" do %>
+            <i class="fas fa-edit"></i>
             <% end %>
-        </div>
-        </br>
-        <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
-        <div class= 'body'>
-            <h4><strong><%= @post.title %></strong></h4>
-            </br>
-        <div class= "image_investor">
-            <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
-        </div>
-        </br>
-            <%= @post.body%>
-        </div>
-        </br>
-        <div>
-            <% @post.tags.each do |tag| %>
-                <span>・<%= tag.name %></span>
+            <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" do %>
+            <i class="fas fa-trash-alt"></i>
             <% end %>
-        </div>
+        <% end %>
+    </div>
+    </br>
+    <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
+    <div class= 'body'>
+        <h4><strong><%= @post.title %></strong></h4>
+        </br>
+    <div class= "image_investor">
+        <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
+    </div>
+    </br>
+        <%= @post.body%>
+    </div>
+    </br>
+    <div>
+        <% @post.tags.each do |tag| %>
+            <span>・<%= tag.name %></span>
+        <% end %>
+    </div>
 
-        </br>
-        <div id="favorite_<%= @post.id %>">
-            <%= render 'public/favorites/favorites', post: @post %>
-        </div>
-        </br>
-        <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
-        <div id = "post_comments_<%= @post.id %>">
-          <strong>コメント</strong>
-          </br>
-          <%= render 'public/post_comments/comment', post_comments: @post.post_comments, user: @user, post: @post %>
-          </br>
-          <% if @post_comment != "current_user" %>
-            <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
-          <% end %>
-        </div>
-        </br>
+    </br>
+    <div id="favorite_<%= @post.id %>">
+        <%= render 'public/favorites/favorites', post: @post %>
+    </div>
+    </br>
+    <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
+    <div id = "post_comments_<%= @post.id %>">
+      <strong>コメント</strong>
+      </br>
+      <%= render 'public/post_comments/comment', post_comments: @post.post_comments, user: @user, post: @post %>
+      </br>
+      <% if @post_comment != "current_user" %>
+        <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
+      <% end %>
+    </div>
+    </br>
     </div>
 </div>
