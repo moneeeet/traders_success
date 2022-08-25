@@ -3,40 +3,36 @@
     <h1><strong>いいね一覧</strong></h1>
   </div>
 
-<div class="row">
-      <% @favorite_posts.each do |post|%> </br>
-        <div class= "table mb-3 pb-3">
+  <div class="row">
+    <% @favorite_posts.each do |post|%>
+      <div class= "table mb-3 pb-3">
         <thead>
           <tr>
             <th>
               <%= link_to public_user_path(@user) do %>
-              <%= post.user.name%>
+                <%= post.user.name%>
               <% end %>
             </th>
-            <th>
-              <%= post.title %>
+          <th>
+            <%= post.title %>
             </th>
           </tr>
         </thead>
-       <tbody>
+        <tbody>
           <tr>
             <hr>
             <td>
-            <%= link_to public_post_path(post) do %>
-              <%= image_tag post.get_image(250,500), class: "post-size" %>
-            <%end %>
-            </td>
-            <td>
-
+              <%= link_to public_post_path(post) do %>
+                <%= image_tag post.get_image(250,500), class: "post-size" %>
+              <% end %>
             </td>
           </tr>
         </tbody>
         <hr class="border border-4">
-        </div>
-      <% end %>
-      <div class="text-center"><%#= paginate @favorite_posts, theme: 'bootstrap-5' %></div>
-        </div><br>
+      </div>
+    <% end %>
+    <div class="text-center"><%= paginate @favorite_posts, theme: 'bootstrap-5' %></div>
     </div>
-  </div>
-</div><br><br><br><br><br><br>
+</div>
+
 

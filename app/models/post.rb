@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  # paginates_per 1
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy

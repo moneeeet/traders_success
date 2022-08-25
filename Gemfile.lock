@@ -138,6 +138,7 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.16.2)
     msgpack (1.5.4)
+    mysql2 (0.5.4)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -307,6 +308,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari (~> 1.2.1)
   listen (~> 3.3)
+  mysql2
   net-imap
   net-pop
   net-smtp
