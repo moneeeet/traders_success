@@ -2,7 +2,7 @@
     <div class='mx-auto col-lg-6 pb-5'>
     </br>
     </br>
-        <div class= 'user'>
+        <div class= 'user-profile-image'>
          <%= link_to public_user_path(@user) do %>
          <%= image_tag @user.get_profile_image(50,50) %>
          <%= @user.name %>
@@ -48,7 +48,9 @@
           </br>
           <%= render 'public/post_comments/comment', post_comments: @post.post_comments, user: @user, post: @post %>
           </br>
-        <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
+          <% if @post_comment != "current_user" %>
+            <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
+          <% end %>
         </div>
         </br>
     </div>
