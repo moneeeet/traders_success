@@ -3,10 +3,13 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :active_comments, -> { joins(:user).where(user: {is_deleted: false})}, class_name: "PostComment"
   #postsテーブルから中間テーブルに対する関連付け
   has_many :post_tag_relations, dependent: :destroy
   #postsテーブルから中間テーブルを介してTagsテーブルへの関連付け
   has_many :tags, through: :post_tag_relations
+  scope :active, -> { joins(:user).where(user: {is_deleted: false}) }
+
   has_one_attached :image
 
   validates :title, presence:true,length:{maximum:20}
