@@ -6,10 +6,10 @@ class Public::CommentReportsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @user = @post.user
+    @user_id = PostComment.find(params[:post_comment_id]).user_id
     @comment_report = CommentReport.new(report_params)
     @comment_report.comment_reporter_id = current_user.id
-    @comment_report.comment_reported_id = @user.id
+    @comment_report.comment_reported_id = @user_id
     @comment_report.post_comment_id = params[:post_comment_id]
     if @comment_report.save
       redirect_to public_post_path(@post), notice: "ご報告ありがとうございます。"
