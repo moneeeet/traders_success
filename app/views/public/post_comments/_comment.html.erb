@@ -16,11 +16,10 @@
           <% end %>
         <% end %>
       </td>
+      <td></td>
       <td>
         <% if post_comment.user != current_user %>
-          <%= link_to new_public_post_post_comment_comment_report_path(post_id: post.id, post_comment_id: post_comment.id), class: "btn btn-danger" do %>
-            <i class="fas fa-poo-storm"></i>
-          <% end %>
+          <%= link_to "通報", new_public_post_post_comment_comment_report_path(post_id: post.id, post_comment_id: post_comment.id), class: "btn btn-outline-danger" %>
         <% end %>
       </td>
     </tr>

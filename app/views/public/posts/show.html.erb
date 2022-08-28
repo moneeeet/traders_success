@@ -47,7 +47,6 @@
       </br>
       <%= render 'public/post_comments/comment', post_comments: @post.active_comments, user: @user, post: @post %>
       </br>
-
     </div>
      <% if @post_comment != "current_user" %>
         <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
