@@ -17,7 +17,8 @@ TwitterやInstagramなどのSNSで勉強内容を発信しているユーザー�
 - 習得したいと思っている分析法をサイト内で検索して勉強したい時に利用できる。
 - 他ユーザーの勝った時や負けた時のエントリーポイントを見て参考にしたい時に利用できる。
 ## 設計書
-<...>
+- 実装機能リスト　https://docs.google.com/spreadsheets/d/1B-pHR3e7jGZIGBSbWpXLpg-XuNsyfjblob8eZgRC_n4/edit#gid=885378170
+- ER図　https://app.diagrams.net/#G1Fpd4A9xmZNa6oewItcEFrMwRNxJji-wX
 
 ## 開発環境
 - OS：Linux(CentOS)
