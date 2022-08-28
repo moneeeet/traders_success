@@ -9,7 +9,7 @@ TwitterやInstagramなどのSNSで勉強内容を発信しているユーザー�
 
 ### ターゲットユーザ
 - FXを勉強したい人
-- FXを勉強しており、知識をアウトプットしたい人　
+- FXを勉強しており、知識をアウトプットしたい人
 - FXに興味があり、勉強開始するために情報収集している人
 
 ### 主な利用シーン
@@ -19,6 +19,7 @@ TwitterやInstagramなどのSNSで勉強内容を発信しているユーザー�
 ## 設計書
 - 実装機能リスト　https://docs.google.com/spreadsheets/d/1B-pHR3e7jGZIGBSbWpXLpg-XuNsyfjblob8eZgRC_n4/edit#gid=885378170
 - ER図　https://app.diagrams.net/#G1Fpd4A9xmZNa6oewItcEFrMwRNxJji-wX
+- アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/1-q88I5nZs5cHTXi2P_TYq_Ei1llcAy5z/edit#gid=690351372
 
 ## 開発環境
 - OS：Linux(CentOS)
