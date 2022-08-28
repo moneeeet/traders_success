@@ -6,11 +6,11 @@
       <tbody>
         <tr>
           <td>コメント通報ID</td>
-          <td><%= link_to @comment_report.id %></td>
+          <td><%= @comment_report.id %></td>
         </tr>
         <tr>
           <td>会員名</td>
-          <td><%= link_to @comment_report.comment_reported.name, edit_admin_comment_report_path(@comment_report) %></td>
+          <td><%= @comment_report.comment_reported.name %></td>
         </tr>
         <tr>
           <td>コメント内容</td>

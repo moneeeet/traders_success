@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'reports/index'
-    get 'reports/show'
-    get 'reports/update'
-  end
-  namespace :public do
-    get 'reports/new'
-    get 'reports/create'
-  end
-  devise_for :users,skip: [:passwords], controllers: {
+devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -35,8 +26,6 @@ root to: 'public/homes#top'
      end
      resource :favorites, only:[:create, :destroy]
    end
-
-
 
    resources :users, only: [:show, :edit, :update, :index] do
      member do
