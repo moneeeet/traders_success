@@ -10,7 +10,7 @@ class Admin::ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     if @report.update(report_params)
-      redirect_to admin_reports_index_path
+      redirect_to admin_reports_path
     end
   end
 
