@@ -1,4 +1,13 @@
 ja:
+  activerecord:
+    attributes:
+      post:
+        title: "タイトル"
+        body: "本文"
+    errors:
+      messages:
+        record_invalid: "バリデ-ションに失敗しました"
+        too_short: "文字数が足りません"
   enums:
     report:
       status:
