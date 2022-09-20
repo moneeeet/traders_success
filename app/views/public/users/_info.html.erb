@@ -12,7 +12,7 @@
         <% end %>
       </div>
       <div class="mt-2">
-        <% if @user.id == current_user.id %>
+        <% if user.id == current_user.id %>
         <% if current_user.name != "guestuser" %>
           <%= link_to edit_public_user_path(user), class: "btn btn-sm btn-outline-warning" do %>
           <i class="fas fa-user-edit"></i>
@@ -29,9 +29,9 @@
   <tr>
     <td class= "text-center" >
       <% if current_user.name != "guestuser" %>
-        <% if @user != current_user %>
+        <%# if @user != current_user %>
           <%= link_to "ユーザーを通報", new_public_user_report_path(user), class: "btn btn-danger" %>
-        <% end %>
+        <%# end %>
       <% end %>
     </td>
   </tr>
