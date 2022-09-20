@@ -15,7 +15,7 @@
         <% if user.id == current_user.id %>
         <% if current_user.name != "guestuser" %>
           <%= link_to edit_public_user_path(user), class: "btn btn-sm btn-outline-warning" do %>
-          <i class="fas fa-user-edit"></i>
+            <i class="fas fa-user-edit"></i>
           <% end %>
         <% end %>
         <% end %>
