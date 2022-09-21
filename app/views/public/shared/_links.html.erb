@@ -6,5 +6,8 @@
 </div>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<div class="mb-3">
+  <h3><strong>会員登録がお済みでない方</strong></h3>
   <%= link_to "新規登録", new_registration_path(resource_name), class:"btn btn-outline-success btn-block" %><br />
 <% end %>
+</div>
