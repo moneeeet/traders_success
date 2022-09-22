@@ -3,23 +3,24 @@
     </br>
     </br>
     <div class= 'user-profile-image'>
-     <%= link_to public_user_path(@user) do %>
-     <%= image_tag @user.get_profile_image(50,50) %>
-     <%= @user.name %>
-     <% end %>
+      <%= link_to public_user_path(@user) do %>
+       <%= image_tag @user.get_profile_image(50,50) %>
+       <%= @user.name %>
+      <% end %>
     </div>
     <div class= "text-right">
-        <% if @post.user == current_user %>
-            <%= link_to edit_public_post_path(@post), class: "btn btn-outline-primary edit_post_#{@post.id}" do %>
-            <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" do %>
-            <i class="fas fa-trash-alt"></i>
-            <% end %>
+      <% if @post.user == current_user %>
+        <%= link_to edit_public_post_path(@post), class: "btn btn-outline-primary edit_post_#{@post.id}" do %>
+        <i class="fas fa-edit"></i>
         <% end %>
+        <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
     </div>
     </br>
     <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
+
     <div class= 'body'>
         <h4><strong><%= @post.title %></strong></h4>
         </br>
@@ -31,14 +32,14 @@
     </div>
     </br>
     <div>
-        <% @post.tags.each do |tag| %>
-            <span>・<%= tag.name %></span>
-        <% end %>
+      <% @post.tags.each do |tag| %>
+        <span>・<%= tag.name %></span>
+      <% end %>
     </div>
 
     </br>
     <div id="favorite_<%= @post.id %>">
-        <%= render 'public/favorites/favorites', post: @post %>
+      <%= render 'public/favorites/favorites', post: @post %>
     </div>
     </br>
     <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->

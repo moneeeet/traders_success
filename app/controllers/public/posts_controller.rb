@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_user, only: [:edit, :update, :destroy]
+
   before_action :ensure_normal_user, only: [:new, :create, :destroy, :update, :edit ]
 
   def ensure_normal_user
@@ -93,5 +95,12 @@ class Public::PostsController < ApplicationController
 
   def post_search_params
     byebug
+  end
+
+  def ensure_user
+     @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to public_post_path
+    end
   end
 end
