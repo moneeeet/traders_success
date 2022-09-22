@@ -1,7 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_user, only: [:edit, :update, :destroy]
-
   before_action :ensure_normal_user, only: [:new, :create, :destroy, :update, :edit ]
 
   def ensure_normal_user

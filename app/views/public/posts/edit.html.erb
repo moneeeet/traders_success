@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto"></br>
   		<h1>投稿編集</h1>
   		<%= form_with model:@post, url: public_post_path(@post), method: :patch, local:true do |f| %>
       <form>
@@ -16,6 +16,18 @@
         <div class="mb-3">
          <%= f.label :opinion %>
          <%= f.text_area :body, class: 'form-control book_body' %>
+        </div>
+        </br>
+        <div class="mb-3 ml-0 form-check">
+        <div class='form-group'>
+          <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class='form-check'>
+              <%= tag.label class: 'form-check-label' do %>
+                <%= tag.check_box class: 'form-check-input' %>
+                <%= tag.text %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div class="mb-3 form-check">
          <%= f.submit class: 'btn btn-success' %>
