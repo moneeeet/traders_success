@@ -29,9 +29,9 @@
   <tr>
     <td class= "text-center" >
       <% if current_user.name != "guestuser" %>
-        <%# if @user != current_user %>
+        <% if user != current_user %>
           <%= link_to "ユーザーを通報", new_public_user_report_path(user), class: "btn btn-danger" %>
-        <%# end %>
+        <% end %>
       <% end %>
     </td>
   </tr>
