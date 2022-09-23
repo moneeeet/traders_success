@@ -20,6 +20,7 @@
         </br>
         <div class="mb-3 ml-0 form-check">
         <div class='form-group'>
+          <%= f.label :opinion, "タグ" %>
           <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
             <div class='form-check'>
               <%= tag.label class: 'form-check-label' do %>
