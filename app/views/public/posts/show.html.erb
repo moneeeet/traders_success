@@ -20,35 +20,36 @@
     <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
 
     <div class= 'body'>
-      <h4><strong><%= @post.title %></strong></h4>
-      </br>
-    <div class= "image_investor">
-      <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
-    </div>
-    </br>
-      <%= @post.body%>
-    </div>
-    </br>
-    <div>
+      <h4><strong><%= @post.title %></strong></h4></br>
+      <div class= "image_investor">
+        <%= image_tag @post.get_image(50,50), class:"card-img-top" %>
+      </div></br>
+      <div class="post_body">
+         <%= @post.body%>
+      </div>
+    </div></br>
+
+    <div class="tags">
       <% @post.tags.each do |tag| %>
         <span>・<%= tag.name %></span>
       <% end %>
-    </div>
-    </br>
+    </div></br>
+
     <div id="favorite_<%= @post.id %>">
       <%= render 'public/favorites/favorites', post: @post %>
-    </div>
-    </br>
+    </div></br>
+
     <div class="border-top" style="padding:10px;"></div> <!--上ボーダー -->
     <div id = "post_comments_<%= @post.id %>">
       <strong>コメント</strong>
       </br>
       <%= render 'public/post_comments/comment', post_comments: @post.active_comments, user: @user, post: @post %>
-      </br>
-    </div>
-    <% if @post_comment != "current_user" %>
+    </div></br>
+
+    <div class="commetn_form">
+      <% if @post_comment != "current_user" %>
       <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
     <% end %>
-    </br>
+    </div></br>
   </div>
 </div>
