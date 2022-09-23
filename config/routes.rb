@@ -42,6 +42,7 @@ root to: 'public/homes#top'
     resources :reports, only: [:index, :show, :update, :destroy]
     resources :users, only: [:index, :show, :update, :edit]
     resources :comment_reports, only: [:index, :show, :update, :edit, :destroy]
+    resources :tags, only: [:index, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
