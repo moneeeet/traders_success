@@ -1,31 +1,28 @@
 <% posts.each do |post| %>
-        <div class= "table mb-3 pb-3">
-        <thead>
-          <tr>
-            <th>
-              <%= link_to public_user_path(user) do %>
-              <%= post.user.name%>
-              <% end %>
-            </th>
-            <th>
-              <%= post.title %>
-            </th>
-          </tr>
-        </thead>
-       <tbody>
-          <tr>
-            <hr>
-            <td>
-            <%= link_to public_post_path(post) do %>
-              <%= image_tag post.get_image(250,500), class: "post-size" %>
-            <%end %>
-            </td>
-            <td>
-
-            </td>
-          </tr>
-        </tbody>
-        <hr class="border border-4">
-        </div>
-      <% end %>
-      <div class="text-center"><%= paginate posts, theme: 'bootstrap-5' %></div>
+  <div class= "table mb-3 pb-3">
+    <thead>
+      <tr>
+        <th>
+          <%= link_to public_user_path(user) do %>
+          <%= post.user.name%>
+          <% end %>
+        </th>
+        <th>
+          <%= post.title %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <hr>
+          <td>
+          <%= link_to public_post_path(post) do %>
+            <%= image_tag post.get_image(250,500), class: "post-size" %>
+          <%end %>
+          </td>
+      </tr>
+    </tbody>
+  <hr class="border border-4">
+  </div>
+<% end %>
+<div class="text-center"><%= paginate posts, theme: 'bootstrap-5' %></div>
