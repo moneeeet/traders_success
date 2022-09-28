@@ -1,5 +1,28 @@
-<% @tags.each do |tag|%>
-    <%= tag.name%>
-    <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: '本当に消しますか？' }%>
+<div class='container'>
+  <div class=“row”>
+    <div class='mx-auto col-lg-6'>
 
-<% end %>
+      <h3 class="mt-4"><strong>タグ一覧</strong></h3><br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>タグ</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag|%>
+            <tr>
+              <td>
+                 <%= tag.name%>
+              </td>
+              <td>
+                <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: '本当に消しますか？' }%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+     </table>
+    </div>
+  </div>
+</div>
