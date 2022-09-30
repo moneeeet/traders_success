@@ -30,7 +30,7 @@
                 <%= comment_report.comment_report_status_i18n %>
               </td>
               <td>
-                <%= link_to "削除", admin_comment_report_path(comment_report), method: :delete, data: { confirm: '本当に消しますか？'}  %>
+                <%= link_to "削除", admin_comment_report_path(comment_report), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-sm btn-danger" %>
               </td>
             </tr>
           <% end %>
