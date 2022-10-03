@@ -15,7 +15,7 @@
         <tr>
           <td>コメント内容</td>
           <td><%= @post_comment.comment %> </br>
-          <%= link_to "削除", admin_post_comment_path(@post_comment), method: :delete %></td>
+          <%= link_to "削除", admin_post_comment_path(@post_comment), method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-sm btn-danger" %></td>
         </tr>
         <tr>
           <td>理由</td>
