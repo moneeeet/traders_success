@@ -16,23 +16,23 @@
         <tbody>
           <%= flash[:notice] %>
           <% @comment_reports.each do |comment_report| %>
-            <tr>
-              <td>
-                <%= link_to comment_report.id, admin_comment_report_path(comment_report) %>
-              </td>
-              <td>
-                <%= comment_report.comment_reported.name %>
-              </td>
-              <td>
-                <%= comment_report.comment_reporter.name %>
-              </td>
-              <td>
-                <%= comment_report.comment_report_status_i18n %>
-              </td>
-              <td>
-                <%= link_to "削除", admin_comment_report_path(comment_report), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-sm btn-danger" %>
-              </td>
-            </tr>
+          <tr>
+            <td>
+              <%= link_to comment_report.id, admin_comment_report_path(comment_report) %>
+            </td>
+            <td>
+              <%= comment_report.comment_reported.name %>
+            </td>
+            <td>
+              <%= comment_report.comment_reporter.name %>
+            </td>
+            <td>
+              <%= comment_report.comment_report_status_i18n %>
+            </td>
+            <td>
+              <%= link_to "削除", admin_comment_report_path(comment_report), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
           <% end %>
         </tbody>
      </table>
