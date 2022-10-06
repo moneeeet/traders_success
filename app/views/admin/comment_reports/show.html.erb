@@ -1,44 +1,46 @@
 <div class='container'>
   <div class=“row”>
     <div class='mx-auto col-lg-6'>
-    <h3 class="mt-4"><strong>コメント通報詳細</strong></h3><br>
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>コメント通報ID</td>
-          <td><%= @comment_report.id %></td>
-        </tr>
-        <tr>
-          <td>会員名</td>
-          <td><%= @comment_report.comment_reported.name %></td>
-        </tr>
-        <tr>
-          <td>コメント内容</td>
-          <td><%= @post_comment.comment %> </br>
-          <%= link_to "削除", admin_post_comment_path(@post_comment), method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-sm btn-danger" %></td>
-        </tr>
-        <tr>
-          <td>理由</td>
-          <td><%= @comment_report.reason %></td>
-        </tr></br>
-        <tr>
-          <td>URL等</td>
-          <td><%= @comment_report.url %></td>
-        </tr>
-        <tr>
-          <td>通報者</td>
-          <td><%= @comment_report.comment_reporter.name %></td>
-        </tr>
-        <tr>
-          <td>対応ステータス</td>
-          <td>
-            <%= @comment_report.comment_report_status_i18n %>
-            <%= form_with model: @comment_report, url:admin_comment_report_path(@comment_report), method: :patch, local: true do |f| %>
-              <%= f.select :comment_report_status, CommentReport.comment_report_statuses.keys.map { |k| [t("enums.report.status.#{k}"), k] } %>
-              <%= f.submit '更新' %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <h3 class="mt-4"><strong>コメント通報詳細</strong></h3><br>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>コメント通報ID</td>
+              <td><%= @comment_report.id %></td>
+            </tr>
+            <tr>
+              <td>会員名</td>
+              <td><%= @comment_report.comment_reported.name %></td>
+            </tr>
+            <tr>
+              <td>コメント内容</td>
+              <td><%= @post_comment.comment %> </br>
+              <%= link_to "削除", admin_post_comment_path(@post_comment), method: :delete, data: { confirm: '本当に削除しますか'}, class: "btn btn-sm btn-danger" %></td>
+            </tr>
+            <tr>
+              <td>理由</td>
+              <td><%= @comment_report.reason %></td>
+            </tr></br>
+            <tr>
+              <td>URL等</td>
+              <td><%= @comment_report.url %></td>
+            </tr>
+            <tr>
+              <td>通報者</td>
+              <td><%= @comment_report.comment_reporter.name %></td>
+            </tr>
+            <tr>
+              <td>対応ステータス</td>
+              <td>
+                <%= @comment_report.comment_report_status_i18n %>
+                <%= form_with model: @comment_report, url:admin_comment_report_path(@comment_report), method: :patch, local: true do |f| %>
+                  <%= f.select :comment_report_status, CommentReport.comment_report_statuses.keys.map { |k| [t("enums.report.status.#{k}"), k] } %>
+                  <%= f.submit '更新' %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
 </div>
