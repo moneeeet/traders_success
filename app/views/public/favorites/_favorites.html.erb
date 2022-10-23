@@ -1,14 +1,14 @@
 <div>
   <% if post.favorited?(current_user) %>
-  <%= link_to public_post_favorites_path(post), method: :delete, remote: true do %>
-    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-      <span class = "text-danger" ><%= post.favorites.count %></span>
-  <% end %>
-  <% else %>
-    <%= link_to public_post_favorites_path(post), method: :post, remote: true do %>
-      <i class="fas fa-heart" aria-hidden="true"></i>
-        <%= post.favorites.count %>
-  <% end %>
+    <%= link_to public_post_favorites_path(post), method: :delete, remote: true do %>
+      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+        <span class = "text-danger" ><%= post.favorites.count %></span>
+    <% end %>
+    <% else %>
+      <%= link_to public_post_favorites_path(post), method: :post, remote: true do %>
+        <i class="fas fa-heart" aria-hidden="true"></i>
+          <%= post.favorites.count %>
+    <% end %>
 <% end %>
 
 
