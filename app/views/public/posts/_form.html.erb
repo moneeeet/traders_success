@@ -1,20 +1,20 @@
 <%= form_with model: post, local:true do |f| %>
   <form>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <div class="mb-3">
-      <%= f.label :image, "画像" %>
-      <%= f.file_field :image, accept: "image/*", class:"form-control-file" %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control book_title' %>
-    </div>
-    <div class="mb-3">
-     <%= f.label :opinion %>
-     <%= f.text_area :body, class: 'form-control book_body' %>
-    </div>
-    <div class="mb-3 form-check">
-     <%= f.submit class: 'btn btn-success' %>
-    </div>
+      <div class="mb-3">
+        <%= f.label :image, "画像" %>
+        <%= f.file_field :image, accept: "image/*", class:"form-control-file" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control book_title' %>
+      </div>
+      <div class="mb-3">
+       <%= f.label :opinion %>
+       <%= f.text_area :body, class: 'form-control book_body' %>
+      </div>
+      <div class="mb-3 form-check">
+       <%= f.submit class: 'btn btn-success' %>
+      </div>
   </form>
 <% end %>
